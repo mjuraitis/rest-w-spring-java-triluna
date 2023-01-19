@@ -1,4 +1,4 @@
-package br.com.triluna;
+package br.com.triluna.model;
 
 public class Greeting {
 
