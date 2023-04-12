@@ -26,11 +26,13 @@ jobs:
         cache: maven
         
     - name: Build application JAR
-      working-directory: java/rest-w-spring-java-triluna
-      run: mvn clean package
+      working-directory: ./java/rest-w-spring-java-triluna
+      run: | 
+        pwd
+        mvn clean package
       
     - name: Push to Docker Hub Container Registry
-      run:
+      run: | 
         docker tag ${{ secrets.DOCKER_USERNAME }}/rest-spring-erudio:latest ${{ secrets.DOCKER_USERNAME }}/rest-spring-erudio:${{ github.run_id }}
         docker push ${{ secrets.DOCKER_USERNAME }}/rest-spring-erudio:${{ github.run_id }}
         docker push ${{ secrets.DOCKER_USERNAME }}/rest-spring-erudio:latest
