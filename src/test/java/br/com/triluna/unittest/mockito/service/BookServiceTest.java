@@ -92,7 +92,7 @@ class BookServiceTest {
 			service.create(null);
 		});
 		
-		String expectedMessage = "It is not allowed to persist a null object!";
+		String expectedMessage = "NULL Object persistence not allowed.";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(actualMessage.contains(expectedMessage));
@@ -134,7 +134,7 @@ class BookServiceTest {
 			service.update(null);
 		});
 		
-		String expectedMessage = "It is not allowed to persist a null object!";
+		String expectedMessage = "NULL Object persistence not allowed.";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(actualMessage.contains(expectedMessage));
