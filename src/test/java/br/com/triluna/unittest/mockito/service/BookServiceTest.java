@@ -1,6 +1,7 @@
 package br.com.triluna.unittest.mockito.service;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
@@ -72,7 +73,7 @@ class BookServiceTest {
 		//vo.setKey(1L);
 		vo.setKey(null);
 		
-		when(repository.save(entity)).thenReturn(persisted);
+		lenient().when(repository.save(entity)).thenReturn(persisted);
 		
 		var result = service.create(vo);
 		
