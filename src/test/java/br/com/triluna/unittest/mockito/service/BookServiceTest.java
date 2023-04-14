@@ -70,8 +70,7 @@ class BookServiceTest {
 		persisted.setId(1L);
 		
 		BookVO vo = input.mockVO(1);
-		//vo.setKey(1L);
-		vo.setKey(null);
+		vo.setKey(1L);
 		
 		lenient().when(repository.save(entity)).thenReturn(persisted);
 		
