@@ -8,7 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: myenvironment
+    env:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
     steps:
     - uses: actions/checkout@v3
@@ -32,8 +33,8 @@ jobs:
       
     - name: Push to Docker Hub Container Registry
       run: | 
-        echo ${{ secrets['DOCKER_USERNAME'] }}
-        docker tag ${{ secrets['DOCKER_USERNAME'] }}/rest-spring-erudio:latest ${{ secrets['DOCKER_USERNAME'] }}/rest-spring-erudio:${{ github.run_id }}
+        echo ${{ env.DOCKER_USERNAME }}
+        docker tag ${{ secrets.DOCKER_USERNAME }}/rest-spring-erudio:latest ${{ secrets.DOCKER_USERNAME }}/rest-spring-erudio:${{ github.run_id }}
         docker push ${{ secrets.DOCKER_USERNAME }}/rest-spring-erudio:${{ github.run_id }}
         docker push ${{ secrets.DOCKER_USERNAME }}/rest-spring-erudio:latest
 
